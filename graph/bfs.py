@@ -1,4 +1,4 @@
-# Comlexity: O(n + e)
+# Complexity: O(n + e)
 def bfs(node_id_to_node_ids, source_node_id):
 
     visited_node_ids_to_hops = {source_node_id: 0}
@@ -7,6 +7,8 @@ def bfs(node_id_to_node_ids, source_node_id):
     while queue:
 
         current_node_id = queue.pop()
+        print(f"{current_node_id} ")
+
         current_node_hops = visited_node_ids_to_hops[current_node_id]
 
         neighbour_node_ids = node_id_to_node_ids[current_node_id]
