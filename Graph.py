@@ -7,36 +7,25 @@ import utils
 
 class Graph:
 
-    nodes = set() # node ids
-    edges = {} # from node id to set of node ids
+    __nodes = set() # node ids
+    __edges = {} # from node id to set of node ids
 
     def __init__(self, is_directed):
-        self.is_directed = is_directed
+        self.__is_directed = is_directed
 
     def add_node(self, node_id):
-        self.nodes.add(node_id)
+        self.__nodes.add(node_id)
 
     def add_edge(self, source_node_id, target_node_id, is_bidirectional=False):
-        if source_node_id not in self.edges:
-            self.edges[source_node_id] = set()
+        if source_node_id not in self.__edges:
+            self.__edges[source_node_id] = set()
 
-        self.edges[source_node_id].add(target_node_id)
+        self.__edges[source_node_id].add(target_node_id)
 
         if is_bidirectional:
             self.add_edge(target_node_id, source_node_id)
 
-    def union(self, parents, node_a, node_b):
-        union_find.union(parents, node_a, node_b)
 
-    def find_parent(self, parents, node):
-        return union_find.find_parent(parents, node)
-
-
-    def bfs(self, source_node_id):
-        bfs(self.edges, source_node_id)
-
-    def dfs(self, source_node_id):
-        dfs(self.edges, source_node_id)
 
     def dijkstra(self):
 
@@ -45,37 +34,55 @@ class Graph:
 
 
     def is_cyclic(self):
-        if self.is_directed:
-            # implement
+        if self.__is_directed:
+            self.__is_cyclic_directed()
+
         else:
-            parents = {}
+            self.__is_cyclic_undirected()
 
-            for node_id in self.nodes:
-                parents[node_id] = node_id
 
-            for source_node_id in self.nodes:
-                for target_node_id in self.edges[source_node_id]:
-                    source_node_parent = union_find.find_parent(parents, source_node_id)
-                    target_node_parent = union_find.find_parent(parents, target_node_id)
-
-                    if source_node_parent == target_node_parent:
-                        return True
-
-                    union_find.union(parents, source_node_parent, target_node_parent)
-
-            return False
 
     def minimum_spanning_tree(self):
-        if self.is_dense():
+        if self.__is_dense():
             return prim()
         else:
             return kruskal()
 
 
-    def is_dense(self):
-        num_of_edges = len(utils.flatten(self.edges))
+    def __is_cyclic_undirected(self):
+        parents = {}
 
-        return num_of_edges > len(self.nodes)
+        for node_id in self.__nodes:
+            parents[node_id] = node_id
+
+        for source_node_id in self.__nodes:
+            for target_node_id in self.__edges[source_node_id]:
+                source_node_parent = union_find.find_parent(parents, source_node_id)
+                target_node_parent = union_find.find_parent(parents, target_node_id)
+
+                if source_node_parent == target_node_parent:
+                    return True
+
+                union_find.union(parents, source_node_parent, target_node_parent)
+
+        return False
+
+
+    def __is_cyclic_directed(self):
+
+
+    def __is_dense(self):
+        num_of_edges = len(utils.flatten(self.__edges))
+
+        return num_of_edges > len(self.__nodes)
+
+    def __bfs(self, source_node_id):
+        bfs(self.__edges, source_node_id)
+
+
+    def __dfs(self, source_node_id):
+        dfs(self.__edges, source_node_id)
+
 
 
 
