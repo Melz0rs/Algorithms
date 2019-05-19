@@ -1,6 +1,9 @@
+from graph.prim import prim
+from graph.kruskal import kruskal
 from graph.bfs import bfs
 from graph.dfs import dfs
 import disjoint_sets.union_find as union_find
+import utils
 
 class Graph:
 
@@ -41,12 +44,6 @@ class Graph:
     def floyd_warshall(self):
 
 
-    def kruskal(self):
-
-
-    def prim(self):
-
-
     def is_cyclic(self):
         if self.is_directed:
             # implement
@@ -68,6 +65,17 @@ class Graph:
 
             return False
 
+    def minimum_spanning_tree(self):
+        if self.is_dense():
+            return prim()
+        else:
+            return kruskal()
+
+
+    def is_dense(self):
+        num_of_edges = len(utils.flatten(self.edges))
+
+        return num_of_edges > len(self.nodes)
 
 
 
