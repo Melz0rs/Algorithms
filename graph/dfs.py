@@ -5,7 +5,7 @@ def dfs(node_id_to_node_ids, source_node_id, visited=None):
         visited = set()
 
     visited.add(source_node_id)
-    print(f"{source_node_id} ")
+    # print(f"{source_node_id} ")
 
     neighbour_node_ids = node_id_to_node_ids[source_node_id]
 
