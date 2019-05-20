@@ -70,11 +70,22 @@ class Graph:
 
     def __is_cyclic_directed(self):
 
+        def has_already_visited(node_id, visited):
+            return node_id in visited
+
+        random_node = next(iter(self.__nodes))
+        is_cyclic = False
+
+        dfs(self.__edges, random_node, visit_fn=has_already_visited)
+
+        return is_cyclic
+
 
     def __is_dense(self):
         num_of_edges = len(utils.flatten(self.__edges))
 
         return num_of_edges > len(self.__nodes)
+
 
     def __bfs(self, source_node_id):
         bfs(self.__edges, source_node_id)

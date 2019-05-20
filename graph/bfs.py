@@ -1,4 +1,4 @@
-# Complexity: O(n + e)
+# Complexity: O(V + E)
 def bfs(node_id_to_node_ids, source_node_id):
 
     visited_node_ids_to_hops = {source_node_id: 0}
