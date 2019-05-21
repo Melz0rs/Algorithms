@@ -1,6 +1,7 @@
 from graph.dfs import dfs
 
 
+# Complexity: O(V + E)
 def is_cyclic(node_ids, node_id_to_node_ids):
     state = {"is_graph_cyclic": False}
 

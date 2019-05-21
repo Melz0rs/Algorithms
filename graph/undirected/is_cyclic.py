@@ -1,6 +1,7 @@
 import disjoint_sets.union_find as union_find
 
 
+# Complexity: O(V + E)
 def is_cyclic(node_ids, node_id_to_node_ids):
     parents = {}
 
