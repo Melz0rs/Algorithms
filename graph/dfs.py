@@ -1,21 +1,22 @@
 # Complexity: O(V + E)
-def dfs(node_id_to_node_ids, source_node_id, visit_fn, visited=None):
+def dfs(node_id_to_node_ids, source_node_id, visit_fn=None, visited=None):
 
     if visited is None:
         visited = set()
 
-    visit_fn(source_node_id, visited)
+    if visit_fn is not None:
+        visit_fn(source_node_id, visited)
 
     if source_node_id in visited:
         return
 
     visited.add(source_node_id)
-    # print(f"{source_node_id} ")
 
-    neighbour_node_ids = node_id_to_node_ids[source_node_id]
+    if source_node_id in node_id_to_node_ids:
+        neighbour_node_ids = node_id_to_node_ids[source_node_id]
 
-    for neighbour_node_id in neighbour_node_ids:
-            dfs(node_id_to_node_ids, neighbour_node_id, visited)
+        for neighbour_node_id in neighbour_node_ids:
+                dfs(node_id_to_node_ids, neighbour_node_id, visit_fn, visited)
 
 
 node_id_to_node_ids = {
