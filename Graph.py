@@ -42,10 +42,14 @@ class Graph:
             undirected_is_cyclic(self.__nodes, self.__edges)
 
     def minimum_spanning_tree(self):
-        if self.__is_dense():
-            return prim()
+        if not self.__is_directed:
+            if self.__is_dense():
+                return prim()
+            else:
+                return kruskal()
         else:
-            return kruskal()
+            return None
+
 
     def __is_dense(self):
         num_of_edges = len(utils.flatten(self.__edges))
