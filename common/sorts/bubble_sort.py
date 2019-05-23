@@ -1,3 +1,4 @@
+# complexity: O(N^2)
 def bubble_sort(arr):
     sorted_arr = arr.copy()
     n = len(arr)
