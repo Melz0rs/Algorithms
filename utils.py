@@ -5,8 +5,12 @@ def flatten(x):
     result = []
 
     for el in x:
-        if isinstance(x, collections.Iterable) and not isinstance(el, str):
+        if type(x) is dict:
+            el = x[el]
+
+        if isinstance(el, collections.Iterable) and not isinstance(el, str):
             result.extend(flatten(el))
         else:
             result.append(el)
+
     return result

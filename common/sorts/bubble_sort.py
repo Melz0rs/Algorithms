@@ -11,9 +11,10 @@ def bubble_sort(arr):
     return sorted_arr
 
 
-arr = [4, 5, 56, 12, 87, 2, 0, 99, 111, 43]
+def test():
+    arr = [4, 5, 56, 12, 87, 2, 0, 99, 111, 43]
 
-sorted_arr = bubble_sort(arr)
+    sorted_arr = bubble_sort(arr)
 
-print(f"sorted_arr: {sorted_arr}")
+    print(f"sorted_arr: {sorted_arr}")
 

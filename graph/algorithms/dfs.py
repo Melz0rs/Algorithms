@@ -19,11 +19,12 @@ def dfs(node_id_to_node_ids, source_node_id, visit_fn=None, visited=None):
                 dfs(node_id_to_node_ids, neighbour_node_id, visit_fn, visited)
 
 
-node_id_to_node_ids = {
-    0: {1, 2},
-    1: {2},
-    2: {3, 0},
-    3: {3}
-}
+def test():
+    node_id_to_node_ids = {
+        0: {1, 2},
+        1: {2},
+        2: {3, 0},
+        3: {3}
+    }
 
-dfs(node_id_to_node_ids, 2)
+    dfs(node_id_to_node_ids, 2)

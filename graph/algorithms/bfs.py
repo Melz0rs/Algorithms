@@ -22,15 +22,16 @@ def bfs(node_id_to_node_ids, source_node_id):
     return visited_node_ids_to_hops
 
 
-node_id_to_node_ids = {
-    1: {2, 3, 6},
-    2: {1, 4, 3},
-    3: {1, 2, 5, 6},
-    4: {2},
-    5: {3, 6},
-    6: {3, 1, 5}
-}
+def test():
+    node_id_to_node_ids = {
+        1: {2, 3, 6},
+        2: {1, 4, 3},
+        3: {1, 2, 5, 6},
+        4: {2},
+        5: {3, 6},
+        6: {3, 1, 5}
+    }
 
-node_ids_to_hops = bfs(node_id_to_node_ids, 1)
+    node_ids_to_hops = bfs(node_id_to_node_ids, 1)
 
-print(f"node_ids_to_hops: {node_ids_to_hops}")
+    print(f"node_ids_to_hops: {node_ids_to_hops}")

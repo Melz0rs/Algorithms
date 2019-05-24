@@ -22,12 +22,13 @@ def is_cyclic(node_ids, node_id_to_node_ids):
     return False
 
 
-node_ids = {1, 2, 3, 4}
-edges = {
-    1: {2, 3},
-    2: {4, 1}
-}
+def test():
+    node_ids = {1, 2, 3, 4}
+    edges = {
+        1: {2, 3},
+        2: {4}
+    }
 
-is_graph_cyclic = is_cyclic(node_ids, edges)
+    is_graph_cyclic = is_cyclic(node_ids, edges)
 
-print(f"is_graph_cyclic: {is_graph_cyclic}")
+    print(f"is_graph_cyclic: {is_graph_cyclic}")
