@@ -26,7 +26,8 @@ def test():
     node_ids = {1, 2, 3, 4}
     edges = {
         1: {2, 3},
-        2: {4}
+        2: {3},
+        3: {4}
     }
 
     is_graph_cyclic = is_cyclic(node_ids, edges)
