@@ -12,8 +12,6 @@ def dfs(node_id_to_node_ids, source_node_id, visit_fn=None, visited=None):
 
     visited.add(source_node_id)
 
-    print(f"node_id: {source_node_id}")
-
     if source_node_id in node_id_to_node_ids:
         neighbour_node_ids = node_id_to_node_ids[source_node_id]
 

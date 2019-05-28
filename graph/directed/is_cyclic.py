@@ -15,11 +15,8 @@ def is_cyclic(node_ids, node_id_to_node_ids):
                 if state["is_graph_cyclic"] is False:
                     state["is_graph_cyclic"] = node_id in visited
 
-            print(f"source_node: {node_id}")
             dfs(node_id_to_node_ids, node_id,
                 visit_fn=lambda node_id, visited: has_already_visited(node_id, visited),visited=outer_state['visited'])
-
-        print(f"is_graph_cyclic: {state['is_graph_cyclic']}")
 
     return state["is_graph_cyclic"]
 
@@ -34,4 +31,4 @@ def test():
 
     is_graph_cyclic = is_cyclic(node_ids, edges)
 
-    # print(f"is_graph_cyclic: {is_graph_cyclic}")
+    print(f"is_graph_cyclic: {is_graph_cyclic}")
