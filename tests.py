@@ -1,23 +1,27 @@
-# from graph.Graph import Graph
-from graph.directed.is_cyclic import test
+from binary_tree.BinaryTree import BinaryTree
+from binary_tree.BinaryTreeNode import BinaryTreeNode
+from binary_tree.string_serializer import serialize, deserialize
 
-test()
 
-# graph = Graph(is_directed=False)
-#
-# graph.add_edge(0, 1, 4)
-# graph.add_edge(0, 7, 8)
-# graph.add_edge(1, 2, 8)
-# graph.add_edge(1, 7, 11)
-# graph.add_edge(2, 3, 7)
-# graph.add_edge(2, 5, 4)
-# graph.add_edge(2, 8, 2)
-# graph.add_edge(3, 4, 9)
-# graph.add_edge(3, 5, 14)
-# graph.add_edge(4, 5, 10)
-# graph.add_edge(5, 6, 2)
-# graph.add_edge(6, 7, 1)
-# graph.add_edge(6, 8, 6)
-# graph.add_edge(7, 8, 7)
-#
-# graph.minimum_spanning_tree()
+root = BinaryTreeNode('a')
+binary_tree = BinaryTree(root)
+
+root.insert_left('s')
+root.insert_right('d')
+
+left = root.left
+right = root.right
+
+left.insert_right('q')
+right.insert_left('w')
+
+serialized_string = serialize(binary_tree)
+
+print(f'serialized_string: {serialized_string}')
+
+deserialized_binary_tree = deserialize(serialized_string)
+
+deserialized_binary_tree.traverse_preorder()
+
+
+
