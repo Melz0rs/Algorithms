@@ -22,5 +22,5 @@ gas = [1, 2, 1, 4]
 cost = [3, 2, 2, 1]
 
 start_index = gas_stations(gas, cost)
-
+#w
 print(f'start_index: {start_index}')
