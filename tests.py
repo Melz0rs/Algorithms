@@ -9,38 +9,14 @@
 
 
 
-from binary_tree.BinaryTree import BinaryTree
-from binary_tree.BinaryTreeNode import BinaryTreeNode
-from binary_tree.bst.find_second_largest import find_second_largest
+from binary_tree import utils
+from binary_tree.find_max_depth import find_max_depth
 
+root = utils.generate([1, 2])
 
-root = BinaryTreeNode(5)
-binary_tree = BinaryTree(root)
+depth = find_max_depth(root)
 
-root.insert_left(3)
-root.insert_right(8)
-
-left = root.left
-right = root.right
-
-left.insert_right(5)
-left.insert_left(1)
-
-right.insert_left(7)
-right.insert_right(12)
-
-right = right.right
-
-right.insert_left(10)
-
-left = right.left
-
-left.insert_left(9)
-left.insert_right(11)
-
-second_largest = find_second_largest(root)
-
-print(f'second_largest: {second_largest.value}')
+print(f'max_depth: {depth}')
 
 
 
